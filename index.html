@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>PKEssay</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile.min.js"></script>
+		<script type="text/javascript" src="phonegap.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+	</head>
+	<body>
+		
+		<div id="signin_pg" data-role="page">
+			<div role="main" data-role="content" class="ui-content">
+				<div class="row">
+					<div class="col-xs-12 div_hribbon text-center">
+						<h2 class="ribbon label-danger">Login To Continue</h2>
+					</div>
+					<div class="col-xs-12 div_hlogo text-center">
+						<img src="imgs/logo.png" alt="">
+					</div>
+					<div class="col-xs-12 nopadding">
+						<div class="col-xs-12">
+							<span id="signin_msg" class="text-center">&nbsp;</span>
+						</div>
+						<div class="col-xs-12">
+							<form name="signin_frm" id="signin_frm" role="form" method="post" action="">
+								<div class="input form-group">
+									<label for="si_username" class="input__label"><span class="input__label-content">Email</span></label>
+									<input type="email" name="si_username" id="si_username" value="" class="input__field">
+								</div>
+								<div class="input form-group">
+									<label for="si_password" class="input__label"><span class="input__label-content">Password</span></label>
+									<input type="password" name="si_password" id="si_password" value="" class="input__field">
+								</div>
+								<div class="input form-group">
+									<input type="checkbox" name="si_remember" id="si_remember" value="1">
+									<label for="si_remember">Remember Password</label>
+								</div>
+								<!--<button type="submit" class="btn btn-block btn-primary">LOGIN</button>-->
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div data-role="footer">
+				<div class="col-xs-12"><a href="#" class="btn btn-block btn-primary" onClick="return $('#signin_frm').submit();">LOGIN</a></div>
+				<div class="col-xs-12"><a href="#signup_pg" class="btn btn-block btn-default">Create new account?</a></div>
+			</div>
+		</div>
+		
+		<div id="signup_pg" data-role="page">
+			<div role="main" data-role="content" class="ui-content">
+				<div class="row">
+					<div class="col-xs-12 div_hribbon text-center">
+						<h2 class="ribbon label-danger">New User</h2>
+					</div>
+					<!--<div class="col-xs-12 div_hlogo text-center">
+						<img src="imgs/logo.png" alt="">
+					</div>-->
+					<div class="col-xs-12 nopadding">
+						<div class="col-xs-12">
+							<span id="signup_msg" class="text-center">&nbsp;</span>
+						</div>
+						<div class="col-xs-12">
+							<form name="signup_frm" id="signup_frm" role="form" method="post" action="">
+								<div class="input form-group">
+									<label for="su_name" class="input__label"><span class="input__label-content">Name</span></label>
+									<input type="text" name="su_name" id="su_name" value="" class="input__field">
+								</div>
+								<div class="input form-group">
+									<label for="su_username" class="input__label"><span class="input__label-content">Email</span></label>
+									<input type="email" name="su_username" id="su_username" value="" class="input__field">
+								</div>
+								<div class="input form-group">
+									<label for="su_phone" class="input__label"><span class="input__label-content">Phone</span></label>
+									<input type="text" name="su_phone" id="su_phone" value="" class="input__field">
+								</div>
+								<div class="input form-group">
+									<label for="su_password" class="input__label"><span class="input__label-content">Password</span></label>
+									<input type="password" name="su_password" id="su_password" value="" class="input__field">
+								</div>
+								<!--<button type="submit" class="btn btn-block btn-primary">SIGNUP</button>-->
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div data-role="footer">
+				<div class="col-xs-12"><a href="#" class="btn btn-block btn-primary" onClick="return $('#signup_frm').submit();">SIGNUP</a></div>
+				<div class="col-xs-12"><a href="#signin_pg" class="btn btn-block btn-default">Already member login</a></div>
+			</div>
+		</div>
+		
+		<div id="main_pg" data-role="page">
+			<div data-role="header">
+				<h1 id="main_h1">&nbsp;</h1>
+				<a href="#" onClick='logoutUser("You have successfully logged out.")' class="btn ui-btn-right"><i class="fa fa-2x fa-sign-out text-danger"></i></a>
+			</div>
+			<div role="main" data-role="content" class="ui-content">
+				<div class="row">
+					<div class="col-xs-12 div_hlogo text-center">
+						<img src="imgs/logo.png" alt="">
+					</div>
+					<div class="col-xs-12">
+						<span id="main_msg" class="text-center">&nbsp;</span>
+					</div>
+					<div class="col-xs-12 div_statuses">
+						<div class="col-xs-4 div_status"><h1 class="text-center label-warning" id="status_p">&nbsp;</h1><span>Pending</span></div>
+						<div class="col-xs-4 div_status"><h1 class="text-center label-success" id="status_c">&nbsp;</h1><span>Completed</span></div>
+						<div class="col-xs-4 div_status"><h1 class="text-center label-primary" id="status_t">&nbsp;</h1><span>Total</span></div>
+					</div>
+					<div class="col-xs-12"><a href="#job_pg" class="btn btn-block btn-primary">NEW JOB</a></div>
+					<div class="col-xs-12"><a href="#list_pg" class="btn btn-block btn-primary">CHECK STATUS</a></div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="job_pg" data-role="page">
+			<div data-role="header">
+				<a href="#main_pg" class="btn ui-btn-left"><i class="fa fa-2x fa-arrow-left text-danger"></i></a>
+				<h1 id="job_h1">&nbsp;</h1>
+				<a href="#" onClick='logoutUser("You have successfully logged out.")' class="btn ui-btn-right"><i class="fa fa-2x fa-sign-out text-danger"></i></a>
+			</div>
+			<div role="main" data-role="content" class="ui-content">
+				<div class="row">
+					<div class="col-xs-12 div_hribbon text-center">
+						<h2 class="ribbon label-danger">New Job</h2>
+					</div>
+					<div class="col-xs-12 div_hlogo text-center">
+						<img src="imgs/logo.png" alt="">
+					</div>
+					<div class="col-xs-12 nopadding">
+						<div class="col-xs-12">
+							<span id="job_msg" class="text-center">&nbsp;</span>
+						</div>
+						<div class="col-xs-12" id="div_job_frm">
+							<form name="job_frm" id="job_frm" role="form" method="post" action="">
+								<div class="input form-group">
+									<label for="j_title" class="input__label"><span class="input__label-content">Assignment Title</span></label>
+									<input type="text" name="j_title" id="j_title" value="" class="input__field">
+								</div>
+								<div class="input form-group">
+									<label for="j_type" class="input__label"><span class="input__label-content">&nbsp;</span></label>
+									<select name="j_type" id="j_type" data-native-menu="false"></select>
+								</div>
+								<div class="input form-group input--filled">
+									<label for="j_ddate" class="input__label"><span class="input__label-content">Dead Line</span></label>
+									<input type="text" name="j_ddate" id="j_ddate" value="" readonly class="input__field">
+								</div>
+								<div class="input message form-group">
+									<label for="j_description" class="input__label"><span class="input__label-content">Assignment Description</span></label>
+									<textarea name="j_description" id="j_description" class="input__field"></textarea>
+								</div>
+								<div class="input form-group">
+									<input type="file" name="j_file" id="j_file" class="input__field" onChange="exitwin();" >
+								</div>
+								<!--<div class="form-group">
+									<button type="button" class="btn btn-block btn-success" onClick="selectFile();">Attach File</button>
+								</div>
+								<div class="form-group">
+									<p id="up_file_url">&nbsp;</p>
+									<p id="up_file_msg">&nbsp;</p>
+									<p id="up_file_progress">&nbsp;</p>
+									<div id="up_file_p" class="progress">
+										<div id="up_file_p_bar" class="progress-bar progress-bar-warning" role="progressbar"></div>
+									</div>
+								</div>-->
+								<!--<button type="submit" class="btn btn-block btn-primary">SUBMIT</button>-->
+							</form>
+						</div>
+						<div class="col-xs-12 text-center" id="div_job_loader" style="display: none;">
+							<img src="css/images/ajax-loader.gif">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div data-role="footer">
+				<div class="col-xs-12"><a href="#" class="btn btn-block btn-primary" onClick="return $('#job_frm').submit();" id="job_frm_submit">SUBMIT</a></div>
+			</div>
+		</div>
+		
+		<div id="list_pg" data-role="page">
+			<div data-role="header">
+				<a href="#main_pg" class="btn ui-btn-left"><i class="fa fa-2x fa-arrow-left text-danger"></i></a>
+				<h1 id="list_h1">&nbsp;</h1>
+				<a href="#" onClick='logoutUser("You have successfully logged out.")' class="btn ui-btn-right"><i class="fa fa-2x fa-sign-out text-danger"></i></a>
+			</div>
+			<div role="main" data-role="content" class="ui-content">
+				<div class="row">
+					<div class="col-xs-12 div_hribbon text-center">
+						<h2 class="ribbon label-danger">Job List</h2>
+					</div>
+					<!--<div class="col-xs-12 div_hlogo text-center">
+						<img src="imgs/logo.png" alt="">
+					</div>-->
+					<div class="col-xs-12 nopadding">
+						<div class="col-xs-12">
+							<div class="input form-group">
+								<label for="list_search" class="input__label"><span class="input__label-content">Search</span></label>
+								<input type="text" name="list_search" id="list_search" value="" class="input__field" onKeyUp="filter_list();">
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<span id="list_msg" class="text-center">&nbsp;</span>
+						</div>
+						<div class="col-xs-12 nopadding" id="job_list">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div data-role="footer">
+				<div class="col-xs-12">
+					<input type="hidden" name="jobs_last_id" id="jobs_last_id" value="">
+					<a href="#" id="jobs_load_more" class="btn btn-block btn-primary" onClick="getJobs();">Load More</a>
+					<a href="#" id="fileOpenA" style="display: none;"></a>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>
